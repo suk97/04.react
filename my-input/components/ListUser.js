@@ -1,7 +1,7 @@
 import React from "react";
 
-function ListUser({ users, onDelete }) {
-    console.log(users);
+function ListUser({ users, onDelete, onUpdateToggle, onSelectUser }) {
+    // console.log(users);
     return(
         <div>
             {users.map((user) => (
@@ -10,6 +10,8 @@ function ListUser({ users, onDelete }) {
                     <b>{user.name}</b>----<b>{user.lastName}</b>
                     
                     <button key={user.id} onClick={() => {onDelete(user.id)}} >del</button>
+
+                    <button key={user.id + "edit-btn"} onClick={() => {onUpdateToggle(); onSelectUser(user);}} >edit</button>
                 </div>
             ))}
         </div>
